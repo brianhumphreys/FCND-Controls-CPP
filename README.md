@@ -283,22 +283,40 @@ The specific performance metrics are as follows:
    - Roll is less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
    - Roll rate is less than 2.5 radian/sec for 0.75 seconds
 
-In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L88-L104).
+#Generate Moter Commands
+In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L72-L87).
 
 The following video displays the passing simulation of scenario 2:
-![C++ Multidrone ok](./animations.scenario2.gif)
+<iframe src='https://gfycat.com/ifr/SilentMaleCaimanlizard' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
-<p align="center">
-<iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
-</p>
+#Body Rate controller
 
-<div style='position:relative;padding-bottom:54%'><iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
+
+#Roll Pitch Criteria
+Other than encoding the roll-pitch formulas, I had to make sure physical constraints of the drone's acceleration commands were adhered to and that the thrust was above 0.  I implemented this portion of the controller [here](./src/QuadControl.cpp#L145-L169)
+
+The following link displays the simulation after the '''RollPitchControl()''' module was implemented:
+<iframe src='https://gfycat.com/ifr/ImmaculateGrimyJumpingbean' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
 
  - scenario 3
-   - X position of both drones should be within 0.1 meters of the target for at least 1.25 seconds
-   - Quad2 yaw should be within 0.1 of the target for at least 1 second
+   - X position of both drones is within 0.1 meters of the target for at least 1.25 seconds
+   - Quad2 yaw is within 0.1 of the target for at least 1 second
+
+#Lateral X-Y Controller
+In this scenario, I was tasked with implementing the first component of the controller that is PID-based.  This meant the controls for the lateral commands had a proportional, derivative, and integral component in its implementation. The code implementation can be found [here](./src/QuadControl.cpp#L257-L278)
+
+The following link shows the simulation after the lateral controller was implemented, without the yaw controller.  Both drones advance to the correct position but on of them is rotated 45 degrees:
+
+<iframe src='https://gfycat.com/ifr/ScentedEminentDodo' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
 
+
+#Yaw Controller
+The Yaw controller need to be able to cope with pi distortions about the unit circle so the implementation corrects for this possibility.  The code is implemented [here]()
+
+<p align="center">
+  <iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
+</p>
  - scenario 4
    - position error for all 3 quads should be less than 0.1 meters for at least 1.5 seconds
 
