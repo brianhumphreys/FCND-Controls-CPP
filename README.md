@@ -286,7 +286,7 @@ The specific performance metrics are as follows:
 In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L88-L104).
 
 The following video displays the passing simulation of scenario 2:
-![C++ Multidrone ok](./animations.scenario2_final.gif)
+![C++ Multidrone ok](./animations.scenario2.gif)
 
  - scenario 3
    - X position of both drones should be within 0.1 meters of the target for at least 1.25 seconds
