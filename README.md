@@ -288,7 +288,11 @@ In this Scenario, it was imperative to get the GenerateMotorCommands() method co
 The following video displays the passing simulation of scenario 2:
 ![C++ Multidrone ok](./animations.scenario2.gif)
 
+<p align="center">
 <iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
+</p>
+
+<div style='position:relative;padding-bottom:54%'><iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='100%' height='100%' style='position:absolute;top:0;left:0' allowfullscreen></iframe></div>
 
  - scenario 3
    - X position of both drones should be within 0.1 meters of the target for at least 1.25 seconds
