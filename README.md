@@ -327,10 +327,10 @@ The altitude was the other PID portion of this controller.  This scenario had a 
 This was a tricky part of the controller implementation.  It seemed that it pushed all of the controller modules to their limits and each module had to be tuned at exactly the right value or else the drones would go crazy!  Nothing else really to say here because there was no code written for this part, only parameter tuning.
 
 The following link displays two drones following a trajectory that makes a figure 8 in the air:
-<iframe src='https://gfycat.com/ifr/MeatyColossalIndianhare' frameborder='0' scrolling='no' width='1584' height='1188' allowfullscreen></iframe>
+https://gfycat.com/ifr/MeatyColossalIndianhare
 
 
-###Many Drones###
+### Many Drones ###
 Also do not have much to say here other than some slight tweaking to the parameters. This was also really fun to get to sit back and watch all of the work come to a satisfying Drone-exploding finale!
 
 <iframe src='https://gfycat.com/ifr/QuarterlyTintedEwe' frameborder='0' scrolling='no' width='1580' height='1184' allowfullscreen></iframe>
