@@ -280,8 +280,13 @@ There are two ways to view the output of the evaluation:
 The specific performance metrics are as follows:
 
  - scenario 2
-   - roll should less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
-   - roll rate should less than 2.5 radian/sec for 0.75 seconds
+   - Roll is less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
+   - Roll rate is less than 2.5 radian/sec for 0.75 seconds
+
+In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L88-L104).
+
+The following video displays the passing simulation of scenario 2:
+![C++ Multidrone ok](./animations.scenario2_final.mov)
 
  - scenario 3
    - X position of both drones should be within 0.1 meters of the target for at least 1.25 seconds
