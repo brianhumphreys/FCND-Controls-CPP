@@ -277,20 +277,20 @@ All tests passed but I could not seem to figure out how to properly embed the gi
 In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L72-L87).
 
 The following video displays the passing simulation of scenario 2:
-<iframe src='https://gfycat.com/ifr/SilentMaleCaimanlizard' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
+https://gfycat.com/ifr/SilentMaleCaimanlizard
 
 ### Body Rate controller ###
 The body rate controller was very straight forward.  I used the built-in class V3F to do some very simple vector calculations to get the moment commands.  The code is implemented [here](./src/QuadControl.cpp#L109-L118)
 
 The following link displays scenario 2 with `BodyRateControl()` implemented and the `RollPitchControl()` stubbed:
 
-<iframe src='https://gfycat.com/ifr/HeartfeltAdeptHeron' frameborder='0' scrolling='no' width='1588' height='1188' allowfullscreen></iframe>
+https://gfycat.com/ifr/HeartfeltAdeptHeron
 
 ### Roll Pitch Criteria ###
 Other than encoding the roll-pitch formulas, I had to make sure physical constraints of the drone's acceleration commands were adhered to and that the thrust was above 0.  I implemented this portion of the controller [here](./src/QuadControl.cpp#L145-L169)
 
 The following link displays the simulation after the `RollPitchControl()` module was implemented:
-<iframe src='https://gfycat.com/ifr/ImmaculateGrimyJumpingbean' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
+https://gfycat.com/ifr/ImmaculateGrimyJumpingbean
 
 ## scenario 3 ##
    - X position of both drones is within 0.1 meters of the target for at least 1.25 seconds
@@ -301,7 +301,7 @@ In this scenario, I was tasked with implementing the first component of the cont
 
 The following link shows the simulation after the lateral controller was implemented, without the yaw controller.  Both drones advance to the correct position but on of them is rotated 45 degrees:
 
-<iframe src='https://gfycat.com/ifr/ScentedEminentDodo' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
+https://gfycat.com/ifr/ScentedEminentDodo
 
 
 ### Yaw Controller ###
@@ -309,7 +309,7 @@ The Yaw controller needed to be able to cope with pi distortions about the unit 
 
 The following link displays the simulation after the yaw controller was implemented:
 
-  <iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
+https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog
 
 ## scenario 4 ##
    - position error for all 3 quads is less than 0.1 meters for at least 1.5 seconds
@@ -318,7 +318,7 @@ The following link displays the simulation after the yaw controller was implemen
 ### Altitude Controller ###
 The altitude was the other PID portion of this controller.  This scenario had a an added obstacle of "Non-Idealities" where one drone had an off-centered mass and one had a higher than normal mass.  To alleviate these instances, the PID had to be implemented with and `integratedAltitudeError` that accumulated each iteration with `(posZCmd - posZ) * dt`.  Also the max Ascent and Descent rates had to be accounted for.  The code is implemented [here](./src/QuadControl.cpp#L200-L219)
 
-<iframe src='https://gfycat.com/ifr/WelldocumentedFragrantFoxterrier' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
+https://gfycat.com/ifr/WelldocumentedFragrantFoxterrier
 
 ## scenario 5 ##
    - position error of the quad is less than 0.25 meters for at least 3 seconds
@@ -333,7 +333,7 @@ https://gfycat.com/ifr/MeatyColossalIndianhare
 ### Many Drones ###
 Also do not have much to say here other than some slight tweaking to the parameters. This was also really fun to get to sit back and watch all of the work come to a satisfying Drone-exploding finale!
 
-<iframe src='https://gfycat.com/ifr/QuarterlyTintedEwe' frameborder='0' scrolling='no' width='1580' height='1184' allowfullscreen></iframe>
+https://gfycat.com/ifr/QuarterlyTintedEwe
 
 
 ## Authors ##
