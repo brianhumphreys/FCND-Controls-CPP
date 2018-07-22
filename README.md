@@ -265,19 +265,7 @@ For flying a trajectory, is there a way to provide even more information for eve
 How about trying to fly this trajectory as quickly as possible (but within following threshold)!
 
 
-## Evaluation ##
-
-To assist with tuning of your controller, the simulator contains real time performance evaluation.  We have defined a set of performance metrics for each of the scenarios that your controllers must meet for a successful submission.
-
-There are two ways to view the output of the evaluation:
-
- - in the command line, at the end of each simulation loop, a **PASS** or a **FAIL** for each metric being evaluated in that simulation
- - on the plots, once your quad meets the metrics, you will see a green box appear on the plot notifying you of a **PASS**
-
-
-### Performance Metrics ###
-
-The specific performance metrics are as follows:
+# Performance Evaluation #
 
 ## scenario 2 ##
    - Roll is less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
