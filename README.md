@@ -280,7 +280,11 @@ The following video displays the passing simulation of scenario 2:
 <iframe src='https://gfycat.com/ifr/SilentMaleCaimanlizard' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
 ### Body Rate controller ###
-The body rate controller
+The body rate controller was very straight forward.  I used the built-in class V3F to do some very simple vector calculations to get the moment commands.  The code is implemented [here](./src/QuadControl.cpp#L109-L118)
+
+The following link displays scenario 2 with `BodyRateControl()` implemented and the `RollPitchControl()` stubbed:
+
+<iframe src='https://gfycat.com/ifr/HeartfeltAdeptHeron' frameborder='0' scrolling='no' width='1588' height='1188' allowfullscreen></iframe>
 
 ### Roll Pitch Criteria ###
 Other than encoding the roll-pitch formulas, I had to make sure physical constraints of the drone's acceleration commands were adhered to and that the thrust was above 0.  I implemented this portion of the controller [here](./src/QuadControl.cpp#L145-L169)
@@ -300,20 +304,37 @@ The following link shows the simulation after the lateral controller was impleme
 <iframe src='https://gfycat.com/ifr/ScentedEminentDodo' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
 
-
-#Yaw Controller
+### Yaw Controller ###
 The Yaw controller needed to be able to cope with pi distortions about the unit circle so the implementation corrects for this possibility.  The code is implemented [here](./src/QuadControl.cpp#L302-L314)
 
 The following link displays the simulation after the yaw controller was implemented:
 
   <iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
 
+## scenario 4 ##
+   - position error for all 3 quads is less than 0.1 meters for at least 1.5 seconds
 
- - scenario 4
-   - position error for all 3 quads should be less than 0.1 meters for at least 1.5 seconds
 
- - scenario 5
-   - position error of the quad should be less than 0.25 meters for at least 3 seconds
+### Altitude Controller ###
+The altitude was the other PID portion of this controller.  This scenario had a an added obstacle of "Non-Idealities" where one drone had an off-centered mass and one had a higher than normal mass.  To alleviate these instances, the PID had to be implemented with and `integratedAltitudeError` that accumulated each iteration with `(posZCmd - posZ) * dt`.  Also the max Ascent and Descent rates had to be accounted for.  The code is implemented [here](./src/QuadControl.cpp#L200-L219)
+
+<iframe src='https://gfycat.com/ifr/WelldocumentedFragrantFoxterrier' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
+
+## scenario 5 ##
+   - position error of the quad is less than 0.25 meters for at least 3 seconds
+
+### Trajectories ###
+This was a tricky part of the controller implementation.  It seemed that it pushed all of the controller modules to their limits and each module had to be tuned at exactly the right value or else the drones would go crazy!  Nothing else really to say here because there was no code written for this part, only parameter tuning.
+
+The following link displays two drones following a trajectory that makes a figure 8 in the air:
+<iframe src='https://gfycat.com/ifr/MeatyColossalIndianhare' frameborder='0' scrolling='no' width='1584' height='1188' allowfullscreen></iframe>
+
+
+###Many Drones###
+Also do not have much to say here other than some slight tweaking to the parameters. This was also really fun to get to sit back and watch all of the work come to a satisfying Drone-exploding finale!
+
+<iframe src='https://gfycat.com/ifr/QuarterlyTintedEwe' frameborder='0' scrolling='no' width='1580' height='1184' allowfullscreen></iframe>
+
 
 ## Authors ##
 
