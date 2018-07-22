@@ -289,7 +289,7 @@ The following video displays the passing simulation of scenario 2:
 ![C++ Multidrone ok](./animations.scenario2.gif)
 
 <p align="center">
-<img src="animations/scenario2_final.gif" width="500"/>
+<img src="animations/scenario5.gif" width="500"/>
 </p>
 
  - scenario 3
