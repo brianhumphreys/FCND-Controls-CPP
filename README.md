@@ -288,6 +288,10 @@ In this Scenario, it was imperative to get the GenerateMotorCommands() method co
 The following video displays the passing simulation of scenario 2:
 ![C++ Multidrone ok](./animations.scenario2.gif)
 
+<p align="center">
+<img src="animations/scenario2_final.gif" width="500"/>
+</p>
+
  - scenario 3
    - X position of both drones should be within 0.1 meters of the target for at least 1.25 seconds
    - Quad2 yaw should be within 0.1 of the target for at least 1 second
