@@ -267,6 +267,8 @@ How about trying to fly this trajectory as quickly as possible (but within follo
 
 # Performance Evaluation #
 
+All tests passed but I could not seem to figure out how to properly embed the gifs into the markdown file.  
+
 ## scenario 2 ##
    - Roll is less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
    - Roll rate is less than 2.5 radian/sec for 0.75 seconds
@@ -278,12 +280,12 @@ The following video displays the passing simulation of scenario 2:
 <iframe src='https://gfycat.com/ifr/SilentMaleCaimanlizard' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
 ### Body Rate controller ###
-
+The body rate controller
 
 ### Roll Pitch Criteria ###
 Other than encoding the roll-pitch formulas, I had to make sure physical constraints of the drone's acceleration commands were adhered to and that the thrust was above 0.  I implemented this portion of the controller [here](./src/QuadControl.cpp#L145-L169)
 
-The following link displays the simulation after the '''RollPitchControl()''' module was implemented:
+The following link displays the simulation after the `RollPitchControl()` module was implemented:
 <iframe src='https://gfycat.com/ifr/ImmaculateGrimyJumpingbean' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
 
 ## scenario 3 ##
@@ -300,11 +302,13 @@ The following link shows the simulation after the lateral controller was impleme
 
 
 #Yaw Controller
-The Yaw controller need to be able to cope with pi distortions about the unit circle so the implementation corrects for this possibility.  The code is implemented [here]()
+The Yaw controller needed to be able to cope with pi distortions about the unit circle so the implementation corrects for this possibility.  The code is implemented [here](./src/QuadControl.cpp#L302-L314)
 
-<p align="center">
+The following link displays the simulation after the yaw controller was implemented:
+
   <iframe src='https://gfycat.com/ifr/QuerulousScornfulBernesemountaindog' frameborder='0' scrolling='no' width='1584' height='1192' allowfullscreen></iframe>
-</p>
+
+
  - scenario 4
    - position error for all 3 quads should be less than 0.1 meters for at least 1.5 seconds
 
