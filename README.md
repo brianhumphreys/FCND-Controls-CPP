@@ -279,30 +279,30 @@ There are two ways to view the output of the evaluation:
 
 The specific performance metrics are as follows:
 
- - scenario 2
+## scenario 2 ##
    - Roll is less than 0.025 radian of nominal for 0.75 seconds (3/4 of the duration of the loop)
    - Roll rate is less than 2.5 radian/sec for 0.75 seconds
 
-#Generate Moter Commands
+### Generate Moter Commands ###
 In this Scenario, it was imperative to get the GenerateMotorCommands() method coded correctly because there is a strong possibility that the rest of the project will not work if this is even slightly off of its mark.  This method was implemented [here](./src/QuadControl.cpp#L72-L87).
 
 The following video displays the passing simulation of scenario 2:
 <iframe src='https://gfycat.com/ifr/SilentMaleCaimanlizard' frameborder='0' scrolling='no' width='1580' height='1192' allowfullscreen></iframe>
 
-#Body Rate controller
+### Body Rate controller ###
 
 
-#Roll Pitch Criteria
+### Roll Pitch Criteria ###
 Other than encoding the roll-pitch formulas, I had to make sure physical constraints of the drone's acceleration commands were adhered to and that the thrust was above 0.  I implemented this portion of the controller [here](./src/QuadControl.cpp#L145-L169)
 
 The following link displays the simulation after the '''RollPitchControl()''' module was implemented:
 <iframe src='https://gfycat.com/ifr/ImmaculateGrimyJumpingbean' frameborder='0' scrolling='no' width='1588' height='1184' allowfullscreen></iframe>
 
- - scenario 3
+## scenario 3 ##
    - X position of both drones is within 0.1 meters of the target for at least 1.25 seconds
    - Quad2 yaw is within 0.1 of the target for at least 1 second
 
-#Lateral X-Y Controller
+### Lateral X-Y Controller ###
 In this scenario, I was tasked with implementing the first component of the controller that is PID-based.  This meant the controls for the lateral commands had a proportional, derivative, and integral component in its implementation. The code implementation can be found [here](./src/QuadControl.cpp#L257-L278)
 
 The following link shows the simulation after the lateral controller was implemented, without the yaw controller.  Both drones advance to the correct position but on of them is rotated 45 degrees:
